@@ -1,105 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Curriculo</title>
+    <title>Minha Página Inicial</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+        nav {
+            background-color: #333;
+            overflow: hidden;
+        }
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+        }
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .container {
+            padding: 20px;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
 </head>
-
 <body>
 
-    <hr>
-    <table>
-        <tr>
-            <td>
-                <img src="user.png" width="250px" height="250px">
-            <td>
-                <hr>
-                <h1><u>DADOS PESSOAIS</u></h1>
-                <p>
-                    <strong>Nome: </strong> Gil Eduardo de Andrade
-                </p>
-                <p>
-                    <strong>Data de Nasc.: </strong> 01/01/2001
-                </p>
-                <p>
-                    <strong>Endereço: </strong> Rua Oswald de Andrade
-                </p>
-                <p>
-                    <strong>Bairro: </strong> Porto fino
-                </p>
-                <p>
-                    <strong>Cidade: </strong> Pontal do Paraná - PR
-                </p>
-                <p>
-                    <strong>CPF: </strong> 090.090.090-09
-                </p>
-                <hr>
-            <td>
-                <p>
-                    <strong>Est. Civil: </strong> Solteiro
-                </p>
-                <p>
-                    <strong>Número: </strong> 903
-                </p>
-                <br>
-                <strong>CEP: </strong> 83255-000
-            </td>
-            </td>
-            </td>
-        </tr>
-    </table>
-    <hr>
-    <h1>QUALIFICAÇÃO PROFISSIONAL</h1>
-    <p>
-        <li><strong>Áreas de Atução: </strong> Linguagens de Programação - Engenharia de Software - 
-        Banco de Dados - Projeto e Desenvolvimento<br> de Software - Internet de Coisas. 
-        </li>
-        <hr>
-        <li> <strong>Tecnologias: </strong> Linguagem Java(Spring Boot) - Linguagem C e C++ - 
-        Linguagem Java Script - Framework React - <br> Linguagem PHP - Banco de Dados Oracle - Banco de Dados MySQL.
-        </li>
-    </p>
-    <h2>FORMAÇÃO ACADÊMICA</h2>
-    <ol>
-        <li>
-            <strong>Graduação Máxima:</strong> Doutorado em Informática
-            <ul>
-                <li><u>Instituição</u>: Pontifícia Universidade Católica do Paraná - PUCPR</li>
-                <li><u>Data de Início</u>: 01/02/2013</li>
-                <li><u>Data de Conclusão</u>: 15/10/2017</li>
-                <li><u>Título da Tese</u>: V-SPORT: Uma estratégia de roteamento de Mensagens baseada na previsão
-                    sobre a localização dos<br> Veículos para Redes Veiculares Tolerantes a atrasos e Desconexões.</li>
-            </ul>
-        </li>
-        <hr>
-        <li>
-            <strong>Graduação:</strong> Engenharia de Computação
-            <ul>
-                <li><u>Instituição</u>: Pontifícia Universidade Católica do Paraná - PUCPR</li>
-                <li><u>Data de Início</u>: 01/02/2001</li>
-                <li><u>Data de Conclusão</u>: 31/12/2005 </li>
-                <li><u>Observação (Disciplinas)</u>: Engenharia de Software, Técnicas de Programação, Técnicas Avançadas de Programação,<br>
-                    Estruturas de Dados, Sistemas Distribuídos, Sistemas Operacionais, Redes de Computadores, Arquitetura de<br>
-                    Computadores, Computação Gráfica, Processamento de Imagem, Sistemas Digitais, Microprocessadores, Eletrônica,<br>
-                    Inteligência Artificial, Controle.
-                </li>
-            </ul>
-        </li>
-    </ol>
-    <hr>
-    <h3>FORMULÁRIO DE CONTATO</h3>
-    <strong>Assunto:</strong>
-    <input type="radio" name="curso" value="Dúvidas">Dúvidas
-    <input type="radio" name="curso" value="Informações"> Mais Informações
-    <input type="radio" name="curso" value="Contratação"> Contratação
-    <p><strong>Nome:</strong>
-    <input type="text" name="Nome">
-    <p><strong>Email:</strong>
-    <input type="text" name="Email">
-    <hr>
-     <button>Enviar</button>
-</body>
+    <header>
+        <h1>Bem-vindo à Minha Página Inicial!</h1>
+    </header>
 
+    <nav>
+        <a href="#">Início</a>
+        <a href="#">Sobre</a>
+        <a href="#">Serviços</a>
+        <a href="#">Contato</a>
+    </nav>
+
+    <div class="container">
+        <h2>Seção Principal</h2>
+        <p>Este é um exemplo simples de uma página inicial em HTML. Você pode personalizar o conteúdo, as cores e os links conforme necessário.</p>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Minha Página Inicial. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
 </html>
