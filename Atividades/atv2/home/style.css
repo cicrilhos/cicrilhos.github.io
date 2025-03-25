@@ -1,5 +1,5 @@
 #home{
-    background-image : url(https://gileduardo.com.br/ifpr/dw/img/background.png);
+    background-image : url("background.png");
     background-size :cover;
 }
 
