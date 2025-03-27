@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Página Inicial</title>
+    <style>
+        body {
+            background-image: url("https://w0.peakpx.com/wallpaper/468/651/HD-wallpaper-corinthians-paulista-brazil-flag-logo.jpg");
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #000000;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+        nav {
+            background-color: #333;
+            overflow: hidden;
+        }
+        nav a {
+            color: rgb(0, 0, 0);
+            padding: 14px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+        }
+        nav a:hover {
+            background-color: #ff0000;
+            color: rgb(0, 0, 0);
+        }
+        .container {
+            padding: 20px;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Bem-vindo à Página do Cicrilhos!</h1>
+    </header>
+    <audio autoplay loop>
+        <source src="hino.mp4" type="audio/mp4">
+        Seu navegador não suporta o elemento de áudio.
+    </audio>
+
+    <nav>
+        <select class="atv" id="opcao" onchange="redirecionar()">
+            <option value="">Escolha uma atividade</option>
+            <option value="https://cicrilhos.github.io/Atividades/atv1/">Atividade 1</option>
+            <option value="https://cicrilhos.github.io/Atividades/atv2/home">Atividade 2</option>
+            <option value="SEU LINK VIU ASDASD">Atividade 3</option>
+        </select>
+        <a href="#">Atividades</a>
+        <a href="#">Sobre</a>
+        <a href="#">Contato</a>
+    </nav>
+
+    <script>
+        function redirecionar() {
+            let opcao = document.getElementById("opcao").value;
+            if (opcao) {
+                window.location.href = opcao;
+            }
+        }
+    </script>
+
+    <footer>
+        <p>&copy; 2025 Minha Página Inicial. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>
