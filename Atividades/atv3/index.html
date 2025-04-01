@@ -1,12 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Home</title>
+    <link rel = "stylesheet" href = "style.css">
 </head>
 <body>
-    
+    <header id = "topo">
+        <img id = "logo"src = "images/memory_icon.png" Alt = "memory icon">
+        <h1 id = "titulo">MEMORY GAME</h1>
+    </header>
+
+    <h2 id = "nome">A</h2>
+
+    <div class = "menu-botoes">
+        <div class = "botao"
+             onmouseover = "mudarNomeMostrarNome('CARRO')"
+             onmouseout = "esconderNome()"
+             onclick = "abrirJogo('CARRO')">
+
+            <img id = "icone" src = "images/carro.png" Alt = "Imagem Carro">
+        </div>
+
+        <div class = "botao"
+             onmouseover = "mudarNomeMostrarNome('MOTO')"
+             onmouseout = "esconderNome()"
+             onclick = "abrirJogo('MOTO')">
+
+            <img id = "icone" src = "images/moto.png" Alt = "Moto">
+        </div>
+
+        <div class = "botao"
+        onmouseover = "mudarNomeMostrarNome('JETSKI')"
+        onmouseout = "esconderNome()"
+        onclick = "abrirJogo('JETSKI')">
+
+            <img id = "icone" src = "images/jetski.png" Alt = "Imagem Jetski">
+        </div>
+    </div>
+
+    <footer>
+        <h3 id = "rodape">Desenvolvimento: Cicrilhos</h3>
+    </footer>
+
+    <script>
+
+    function mudarNomeMostrarNome(nome){
+        const novo_nome = document.getElementById('nome');
+        novo_nome.innerText = nome;
+        novo_nome.style.visibility = 'visible';
+    }
+
+    function esconderNome(){
+        const nome = document.getElementById('nome');
+        nome.style.visibility = 'hidden';
+    }
+
+    function abrirJogo(tema){
+        localStorage.setItem("tema-escolhido", tema);
+        window.location.href = "https://cicrilhos.github.io/Atividades/atv3/jogo.html";
+    }
+
+    </script>
 </body>
 </html>
+    
