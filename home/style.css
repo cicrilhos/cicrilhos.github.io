@@ -1,0 +1,58 @@
+body {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1vh 1vh 1vh;
+
+    grid-template-areas:
+     'cabecario1 cabecario2 cabecario3'
+     'menu corinthians corinthians'
+     'rodape1 rodape2 rodape3';
+     margin: 0;
+     padding: 0;
+}
+
+#cabecario1{
+    background-color: #000000;
+    grid-area: cabecario1;
+}
+
+#cabecario2{
+    grid-area: cabecario2;
+    background-color: #000000;
+}
+
+#cabecario3{
+    grid-area: cabecario3;
+    background-color: #000000;
+}
+
+div.cabecario1{
+    height: 100px;
+    background-color: #000000;
+}
+
+div.cabecario2{
+    height: 100px;
+    background-color: #000000;
+    font-size: 60px;
+    align-items: center;
+    color: white
+}
+
+div.cabecario3{
+    height: 100px;
+    background-color: #000000;
+}
+
+#rodape1{
+    background-color: #000000;
+}
+
+#rodape1{
+    background-color: #000000;
+}
+
+#rodape1{
+    background-color: #000000;
+}

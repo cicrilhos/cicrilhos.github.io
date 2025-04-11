@@ -1,0 +1,32 @@
+
+    <header>
+        <h1>Bem-vindo à Página do Cicrilhos!</h1>
+    </header>
+
+    <nav>
+        <select class="atv" id="opcao" onchange="redirecionar()">
+            <option value="">Escolha uma atividade</option>
+            <option value="https://cicrilhos.github.io/Atividades/atv1/">Atividade 1</option>
+            <option value="https://cicrilhos.github.io/Atividades/atv2/home">Atividade 2</option>
+            <option value="https://cicrilhos.github.io/Atividades/atv3/">Atividade 3</option>
+        </select>
+        <a href="#">Atividades</a>
+        <a href="#">Sobre</a>
+        <a href="#">Contato</a>
+    </nav>
+
+    <script>
+        function redirecionar() {
+            let opcao = document.getElementById("opcao").value;
+            if (opcao) {
+                window.location.href = opcao;
+            }
+        }
+    </script>
+
+<iframe width="500" height="550" src="https://www.youtube.com/embed/g6M8oJq-dEA?si=GS7CMTBDZTHL4PSb&amp;controls=0" frameborder="0" allow="accelerometer; autoplay='true'; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+</iframe>
+
+    <footer>
+        <p>&copy; 2025 Minha Página Inicial. Todos os direitos reservados.</p>
+    </footer>
