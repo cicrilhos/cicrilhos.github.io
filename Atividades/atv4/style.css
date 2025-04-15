@@ -1,0 +1,100 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.barralado {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 100%;
+  vertical-align: middle;
+  background-color: #8e8e8e;
+}
+
+.flex-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.flex-container > div {
+  font-family: 'Times New Roman', Times, serif;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+div.preenchimento {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  width: 100px;
+  margin: 20px;
+  padding: 2px;
+  gap: 5px;
+}
+
+#quadrado1 {
+  grid-area: quadrado1;
+  background-color: yellow;
+  width: 25px;
+  height: 25px;
+  margin: 0;
+  padding: 0;
+}
+
+#quadrado2 {
+  grid-area: quadrado2;
+  background-color: salmon;
+  width: 25px;
+  height: 25px;
+  margin: 0;
+  padding: 0;
+}
+
+#quadrado3 {
+  grid-area: quadrado3;
+  background-color: skyblue;
+  width: 25px;
+  height: 25px;
+  margin: 0;
+  padding: 0;
+}
+
+#quadrado4 {
+  grid-area: quadrado1;
+  background-color: lightyellow;
+  width: 25px;
+  height: 25px;
+}
+
+#quadrado5 {
+  grid-area: quadrado2;
+  background-color: orange;
+  width: 25px;
+  height: 25px;
+}
+
+#quadrado6 {
+  grid-area: quadrado3;
+  background-color: greenyellow;
+  width: 25px;
+  height: 25px;
+}
+/*# sourceMappingURL=style.css.map */

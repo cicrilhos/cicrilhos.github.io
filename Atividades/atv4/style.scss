@@ -1,0 +1,85 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.barralado{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100%;
+    vertical-align: middle;
+    background-color: rgb(142, 142, 142);
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-container > div {
+    font-family:'Times New Roman', Times, serif;
+    display:flex;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    justify-content:center;
+}
+
+div.preenchimento{
+    display: flex;
+    flex-flow: row wrap;
+    width: 100px;
+    margin: 20px;
+    padding: 2px;
+    gap: 5px;
+}
+
+#quadrado1{
+    grid-area: quadrado1;
+    background-color: yellow;
+    width: 25px;
+    height: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+#quadrado2{
+    grid-area: quadrado2;
+    background-color: salmon;
+    width: 25px;
+    height: 25px;
+    margin:0;
+    padding: 0;
+}
+
+#quadrado3{
+    grid-area: quadrado3;
+    background-color: skyblue;
+    width: 25px;
+    height: 25px;
+    margin: 0;
+    padding:0;
+}
+#quadrado4{
+    grid-area: quadrado1;
+    background-color: lightyellow;
+    width: 25px;
+    height: 25px;
+}
+
+#quadrado5{
+    grid-area: quadrado2;
+    background-color: orange;
+    width: 25px;
+    height: 25px;
+}
+
+#quadrado6{
+    grid-area: quadrado3;
+    background-color: greenyellow;
+    width: 25px;
+    height: 25px;
+}
+
