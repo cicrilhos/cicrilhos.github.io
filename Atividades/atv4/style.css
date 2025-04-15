@@ -45,14 +45,13 @@ div.preenchimento {
       -ms-flex-flow: row wrap;
           flex-flow: row wrap;
   width: 100px;
-  margin: 20px;
+  margin: 45px;
   padding: 2px;
   gap: 5px;
 }
 
 #quadrado1 {
-  grid-area: quadrado1;
-  background-color: yellow;
+  background-color: violet;
   width: 25px;
   height: 25px;
   margin: 0;
@@ -60,7 +59,6 @@ div.preenchimento {
 }
 
 #quadrado2 {
-  grid-area: quadrado2;
   background-color: salmon;
   width: 25px;
   height: 25px;
@@ -69,7 +67,6 @@ div.preenchimento {
 }
 
 #quadrado3 {
-  grid-area: quadrado3;
   background-color: skyblue;
   width: 25px;
   height: 25px;
@@ -78,21 +75,18 @@ div.preenchimento {
 }
 
 #quadrado4 {
-  grid-area: quadrado1;
   background-color: lightyellow;
   width: 25px;
   height: 25px;
 }
 
 #quadrado5 {
-  grid-area: quadrado2;
   background-color: orange;
   width: 25px;
   height: 25px;
 }
 
 #quadrado6 {
-  grid-area: quadrado3;
   background-color: greenyellow;
   width: 25px;
   height: 25px;
