@@ -8,29 +8,25 @@
     <link rel="stylesheet" href="style.css">
     </head>
 <body>
-    <header id="cabecario1">
-        <div class="cabecario1">
-            
-        </div>
-    </header>
-    <header id="cabecario2">
-        <div class="cabecario2">
-            BEM VINDO!!!!
-        </div>
-    </header>
-    <header>
-        <div class="cabecario3">
-            
-        </div>
-    </header>
-    <div id = "menu">
+        <div class="cabecario1" onclick="alternarMenu()"><button>☰</button></div>
+        <div class = "cabecario2"> BEM VINDO!!! </div>
+        <div class="cabecario3"></div>
+        <div id="menu"></div>
 
+    <div id="corinthians" >
     </div>
-    <div id="corinthians1" ></div>
-    <div id="corinthians2" ></div>
-    <div id="rodape1"></div>
-    <div id="rodape2"></div>
-    <div id="rodape3"></div>
 
+    <div id="rodape"></div>
+
+    <script href="script.js">
+            function alternarMenu(){
+            const menu = document.getElementById('menu');
+            if(menu.style.visibility === 'hidden' || menu.style.visibility === null){
+                menu.style.visibility = 'visible';
+            } else {
+                menu.style.visibility = 'hidden';
+            }
+        }
+    </script>
 </body>
 </html>
