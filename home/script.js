@@ -1,8 +1,10 @@
-function alternarMenu(){
+function alternarMenu() {
     const menu = document.getElementById('menu-lateral');
-    if(menu.style.visibility === 'hidden' || menu.style.visibility === null){
-        menu.style.visibility = 'visible';
+    const estiloAtual = window.getComputedStyle(menu).display;
+
+    if (estiloAtual === 'none') {
+        menu.style.display = 'block';
     } else {
-        menu.style.visibility = 'hidden';
+        menu.style.display = 'none';
     }
 }

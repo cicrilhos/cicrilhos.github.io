@@ -55,7 +55,9 @@ color: #ffffff;
     display: flex;
     grid-area: menu;
     background-color: darkred;
-    visibility: hidden;
+    display: none;
+    flex-direction: column;
+    align-items: center;
 }
 
 #corinthians{
@@ -71,4 +73,17 @@ color: #ffffff;
     display: flex;
     grid-area: rodape;
     background-color: #000000;
+}
+
+a.menu{
+    text-decoration: none;
+    font-size: 25px;
+    color: #ffffff;
+}
+
+a.menu:hover{
+    opacity: 50%;
+    border: solid;
+    border-radius: 5px;
+    border-color: red;
 }
