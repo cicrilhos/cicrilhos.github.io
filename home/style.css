@@ -67,7 +67,7 @@ color: #ffffff;
     grid-area: corinthians;
     justify-content: center;
     align-items: center;
-    background-image: url('corinthians.jpeg2.jpeg');
+    background-image: url('corinthians.jpeg');
     object-fit: cover;
 }
 
