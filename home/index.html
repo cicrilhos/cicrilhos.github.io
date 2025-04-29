@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -6,25 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VAI CORINTHIANS!!!!!</title>
     <link rel="stylesheet" href="style.css">
-    </head>
+</head>
 <body>
-        <div class="cabecario1" onclick="alternarMenu()"><button>☰</button></div>
-        <div class = "cabecario2"> BEM VINDO!!! </div>
-        <div class="cabecario3"></div>
-        <div id="menu">
-            <a href="https://cicrilhos.github.io/Atividades/atv1/" class="menu">Atividade 1</a>
-            <a href="https://cicrilhos.github.io/Atividades/atv2/home/" class="menu">Atividade 2</a>
-            <a href="https://cicrilhos.github.io/Atividades/atv3/" class="menu">Atividade 3</a>
-            <a href="https://cicrilhos.github.io/Atividades/atv4/" class="menu">Atividade 4</a>
-            
-        </div>
-
-    <div id="corinthians" >
+    <div class="cabecario1" onclick="alternarMenu()">
+        <button>☰</button>
+    </div>
+    <div class="cabecario2"> BEM VINDO!!! </div>
+    <div class="cabecario3"></div>
+    <div id="menu">
+        <a href="https://cicrilhos.github.io/Atividades/atv1/" class="menu">Atividade 1</a>
+        <a href="https://cicrilhos.github.io/Atividades/atv2/home/" class="menu">Atividade 2</a>
+        <a href="https://cicrilhos.github.io/Atividades/atv3/" class="menu">Atividade 3</a>
+        <a href="https://cicrilhos.github.io/Atividades/atv4/" class="menu">Atividade 4</a>
+    </div>
+    <div id="corinthians"></div>
+    <div id="rodape">
+        © Todos os direitos reserevados ao Cirilo
     </div>
 
-    <div id="rodape"></div>
+    <audio id="audioPlayer">
+        <source src="hino.mp3" type="audio/mpeg">
+        Seu navegador não suporta o elemento de áudio.
+    </audio>
 
-    <script href="script.js">
-    </script>
+    <div id="welcomeModal" class="modal">
+        <div class="modal-content">
+            <h2>Bem-vindo!</h2>
+            <button id="startButton">Prosseguir</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
 </body>
 </html>
