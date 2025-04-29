@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const modal = document.getElementById('welcomeModal');
     const startButton = document.getElementById('startButton');
     const audio = document.getElementById('audioPlayer');
+    audio.volume = 0.3;
 
     startButton.addEventListener('click', function () {
         modal.style.display = 'none';
