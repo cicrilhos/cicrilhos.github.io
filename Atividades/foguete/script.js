@@ -22,7 +22,7 @@ function pausarContador() {
 }
 
 function esquerda() {
-  document.addEventListener('keydown', (event) => {  // Corrigido aqui: removi o parêntese extra
+  document.addEventListener('keydown', (event) => {
     if (event.key === 'ArrowLeft' || event.key.toLowerCase() === 'a') {
       const nave = document.querySelector('.nave');
       const posicaoAtual = parseInt(getComputedStyle(nave).left);
@@ -46,7 +46,7 @@ function direita() {
 window.onload = () => {
   iniciarContador();
   esquerda();
-  direita();  // Agora adicionamos a função direita também.
+  direita();
   
   document.addEventListener('keydown', (event) => {
     if (event.key.toLowerCase() === 'p') {
