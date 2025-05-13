@@ -121,3 +121,45 @@ div.quadrado{
     top: 520px;
     left: 625px;
 }
+
+.alien1, .alien2, .alien3 {
+    background-image: url('images/alien.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 160px;
+    height: 160px;
+    position: absolute; /* MUDOU de relative para absolute */
+    top: -160px;
+}
+.alien1 { left: 450px; }
+.alien2 { left: 650px; }
+.alien3 { left: 850px; }
+
+#tela-pause {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: black; 
+    opacity: 50%;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 60px;
+    color: white;
+    font-weight: bold;
+}
+
+.missil {
+    width: 40px;
+    height: 80px;
+    background-image: url('images/missil.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    z-index: 5000;
+}
