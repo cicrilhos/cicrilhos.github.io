@@ -237,7 +237,7 @@ function verificarFimDeFase() {
       mostrarMensagemTemporaria('YOU WIN');
       return;
     }
-
+    
     pausado = true;
     const tela = document.getElementById('tela-pause');
     tela.textContent = 'YOU WON';
