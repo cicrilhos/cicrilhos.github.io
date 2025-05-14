@@ -5,6 +5,7 @@ let perdeu = false;
 let pausado = false;
 let faseAtual = 1;
 let velocidadeAliens = 2;
+let aliensDestruidos = 0; // ✅ contador de aliens destruídos
 
 let misseis = [
   { ativo: false, elemento: document.getElementById('missil1'), intervalo: null },
@@ -22,8 +23,7 @@ function iniciarContador() {
   if (intervalo !== null) return;
 
   pausado = false;
-  const tela = document.getElementById('tela-pause');
-  tela.style.display = 'none';
+  document.getElementById('tela-pause').style.display = 'none';
 
   intervalo = setInterval(() => {
     segundos++;
@@ -64,7 +64,6 @@ function MovimentoAlien() {
     document.querySelector('.alien2'),
     document.querySelector('.alien3')
   ];
-  const nave = document.querySelector('.nave');
 
   setInterval(() => {
     if (perdeu || pausado || vidas <= 0) return;
@@ -80,36 +79,43 @@ function MovimentoAlien() {
         perdeu = true;
         vidas--;
         document.getElementById('vida').textContent = `LIFE: ${vidas}`;
-      
+        
         if (vidas > 0) {
           mostrarDerrotaTemporaria();
-      
-          setTimeout(() => {
-            aliens.forEach(a => a.style.top = `-160px`);
-            perdeu = false;
-            iniciarContador();
-          }, 2000);
         } else {
           mostrarMensagemTemporaria('GAME OVER');
         }
-      
-        return; // ⚠️ Impede múltiplas colisões no mesmo frame
-      }      
+         
+        return;
+      }
     });
   }, 30);
 }
 
+function mostrarMensagemTemporaria(texto) {
+  pausado = true;
+  clearInterval(intervalo);
+  intervalo = null;
+
+  const tela = document.getElementById('tela-pause');
+  tela.textContent = texto;
+  tela.style.display = 'flex';
+}
+
 function mostrarDerrotaTemporaria() {
+  const tela = document.getElementById('tela-pause');
+  tela.textContent = 'YOU LOSE';
+  tela.style.display = 'flex';
+  pausado = true;
+
+  // Reposiciona os aliens imediatamente
+  reposicionarAliens();
+
   setTimeout(() => {
-    const tela = document.getElementById('tela-pause');
     tela.style.display = 'none';
     pausado = false;
-
-    // Reposiciona todos os aliens para a posição inicial
-    reposicionarAliens();
-    
     perdeu = false;
-    iniciarContador();
+    iniciarContador(); // Reinicia o contador de tempo
   }, 2000);
 }
 
@@ -121,41 +127,37 @@ function reposicionarAliens() {
   ];
 
   aliens.forEach(alien => {
-    alien.style.display = 'block'; // Garante que todos os aliens estão visíveis
-    alien.style.top = '-160px'; // Reposiciona os aliens para o topo
+    // Reposiciona os aliens fora da tela (no topo)
+    alien.style.display = 'block';
+    alien.style.top = '-160px';  // Coloca os aliens fora da tela para iniciar novamente
   });
 }
 
 function reiniciarJogo() {
-  // Reseta as variáveis de estado
   vidas = 3;
   faseAtual = 1;
   velocidadeAliens = 2;
   pausado = false;
   perdeu = false;
 
-  // Atualiza a tela de vida
   document.getElementById('vida').textContent = `LIFE: ${vidas}`;
-  
-  // Reposiciona todos os aliens
-  reposicionarAliens();
-  
-  // Reseta o fundo da fase e o cronômetro
   document.body.style.backgroundImage = `url('images/background${faseAtual}.png')`;
-  iniciarContador(); // Reinicia o contador
 
-  // Garante que a nave e os mísseis estão na posição inicial
+  aliensDestruidos = 0; // ✅ reseta contagem ao reiniciar
+  document.getElementById('inimigos').textContent = `ALIEN: ${aliensDestruidos}`;
+
+  reposicionarAliens();
+  iniciarContador();
+
   const nave = document.querySelector('.nave');
-  nave.style.left = '400px'; // Posição inicial da nave
-  nave.style.top = '500px'; // Posição inicial da nave
+  nave.style.left = '400px';
+  nave.style.top = '500px';
 
-  // Reposiciona os mísseis
   misseis.forEach(m => {
     m.elemento.style.top = '600px';
     m.elemento.style.left = '640px';
   });
 }
-
 
 function lancarMissil() {
   if (pausado || perdeu || vidas <= 0) return;
@@ -191,8 +193,8 @@ function lancarMissil() {
       if (alien.style.display === 'none') return;
 
       const alienRect = alien.getBoundingClientRect();
+      const margem = 2;
 
-      const margem = 2; // Ajuste a margem para controle da proximidade da colisão
       const colidiu =
         missilRect.top + margem < alienRect.bottom &&
         missilRect.bottom - margem > alienRect.top &&
@@ -201,13 +203,17 @@ function lancarMissil() {
 
       if (colidiu) {
         alien.style.display = 'none';
+
+        // ✅ Atualiza contagem de inimigos destruídos
+        aliensDestruidos++;
+        document.getElementById('inimigos').textContent = `ALIEN: ${aliensDestruidos}`;
+
         resetarMissil(missil);
         verificarFimDeFase();
       }
     });
   }, 20);
 }
-
 
 function resetarMissil(missil) {
   clearInterval(missil.intervalo);
@@ -239,7 +245,6 @@ function verificarFimDeFase() {
 
     setTimeout(() => {
       velocidadeAliens += 1;
-
       document.body.style.backgroundImage = `url('images/background${faseAtual}.png')`;
       document.body.style.backgroundSize = 'cover';
 
@@ -254,19 +259,10 @@ function verificarFimDeFase() {
   }
 }
 
-function mostrarMensagemTemporaria(texto) {
-  pausado = true;
-  clearInterval(intervalo);
-  intervalo = null;
-
-  const tela = document.getElementById('tela-pause');
-  tela.textContent = texto;
-  tela.style.display = 'flex';
-}
-
 window.onload = () => {
   document.getElementById('vida').textContent = `LIFE: ${vidas}`;
   document.getElementById('tela-pause').style.display = 'none';
+  document.getElementById('inimigos').textContent = `ALIEN: ${aliensDestruidos}`;
 
   misseis.forEach(m => {
     m.elemento.style.top = '600px';
