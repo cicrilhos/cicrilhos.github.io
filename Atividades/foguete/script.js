@@ -133,38 +133,76 @@ function reposicionarAliens() {
   });
 }
 
+// Função para reiniciar o jogo com correção para o estado dos mísseis
 function reiniciarJogo() {
+  // Resetar variáveis
   vidas = 3;
   faseAtual = 1;
   velocidadeAliens = 2;
   pausado = false;
   perdeu = false;
+  aliensDestruidos = 0;
 
+  // Resetar elementos da UI
   document.getElementById('vida').textContent = `LIFE: ${vidas}`;
   document.body.style.backgroundImage = `url('images/background${faseAtual}.png')`;
-
-  aliensDestruidos = 0; // ✅ reseta contagem ao reiniciar
   document.getElementById('inimigos').textContent = `ALIEN: ${aliensDestruidos}`;
 
   reposicionarAliens();
   iniciarContador();
 
+  // Posicionar nave
   const nave = document.querySelector('.nave');
   nave.style.left = '400px';
   nave.style.top = '500px';
 
+  // Resetar os mísseis: parar movimento, estado e posição
   misseis.forEach(m => {
-    m.elemento.style.top = '600px';
-    m.elemento.style.left = '640px';
+    if (m.intervalo) {
+      clearInterval(m.intervalo);
+      m.intervalo = null;
+    }
+    m.ativo = false;
+
+    // Posicionar o míssil no centro da nave, pronto para ser lançado
+    const posicaoNaveX = parseInt(getComputedStyle(nave).left) + (nave.offsetWidth / 2) - (m.elemento.offsetWidth / 2);
+    const posicaoNaveY = parseInt(getComputedStyle(nave).top) - m.elemento.offsetHeight; // um pouco acima da nave
+
+    m.elemento.style.left = `${posicaoNaveX}px`;
+    m.elemento.style.top = `${posicaoNaveY}px`;
+
+    m.elemento.style.display = 'block'; // garantir que o míssil esteja visível e posicionado
   });
+
+  // Atualizar UI dos inimigos
+  document.getElementById('inimigos').textContent = `ALIEN: ${aliensDestruidos}`;
 }
 
+// Função para resetar o míssil, chamada quando o míssil sai da tela ou colide
+function resetarMissil(missil) {
+  if (missil.intervalo) {
+    clearInterval(missil.intervalo);
+    missil.intervalo = null;
+  }
+  missil.ativo = false;
+
+  const nave = document.querySelector('.nave');
+  const posicaoNaveX = parseInt(getComputedStyle(nave).left) + (nave.offsetWidth / 2) - (missil.elemento.offsetWidth / 2);
+  const posicaoNaveY = parseInt(getComputedStyle(nave).top) - missil.elemento.offsetHeight;
+
+  missil.elemento.style.left = `${posicaoNaveX}px`;
+  missil.elemento.style.top = `${posicaoNaveY}px`;
+  missil.elemento.style.display = 'block'; // garantir visibilidade
+}
+
+// Exemplo da função lancarMissil para contexto (não modificado)
+// Função que inicia o movimento do míssil
 function lancarMissil() {
   if (pausado || perdeu || vidas <= 0) return;
 
   const nave = document.querySelector('.nave');
-  const posicaoNave = parseInt(getComputedStyle(nave).left) + 75;
-  const topoNave = parseInt(getComputedStyle(nave).top);
+  const posicaoNave = parseInt(getComputedStyle(nave).left) + (nave.offsetWidth / 2) - 20;
+  const topoNave = parseInt(getComputedStyle(nave).top) - 80;
 
   const missilDisponivel = misseis.find(m => !m.ativo);
   if (!missilDisponivel) return;
@@ -174,11 +212,14 @@ function lancarMissil() {
 
   missil.elemento.style.left = `${posicaoNave}px`;
   missil.elemento.style.top = `${topoNave}px`;
+  missil.elemento.style.display = 'block';
 
   missil.intervalo = setInterval(() => {
-    if (pausado) return;
+    if (pausado || perdeu) return;
 
-    const posicaoAtual = parseInt(missil.elemento.style.top);
+    let posicaoAtual = parseInt(missil.elemento.style.top);
+    if (isNaN(posicaoAtual)) posicaoAtual = topoNave;
+
     if (posicaoAtual <= -100) {
       resetarMissil(missil);
       return;
@@ -204,7 +245,6 @@ function lancarMissil() {
       if (colidiu) {
         alien.style.display = 'none';
 
-        // ✅ Atualiza contagem de inimigos destruídos
         aliensDestruidos++;
         document.getElementById('inimigos').textContent = `ALIEN: ${aliensDestruidos}`;
 
@@ -215,11 +255,7 @@ function lancarMissil() {
   }, 20);
 }
 
-function resetarMissil(missil) {
-  clearInterval(missil.intervalo);
-  missil.ativo = false;
-  missil.elemento.style.top = '800px';
-}
+
 
 function verificarFimDeFase() {
   const aliens = [
@@ -237,7 +273,7 @@ function verificarFimDeFase() {
       mostrarMensagemTemporaria('YOU WIN');
       return;
     }
-    
+
     pausado = true;
     const tela = document.getElementById('tela-pause');
     tela.textContent = 'YOU WON';
