@@ -1,55 +1,61 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; // IMPORTANTE
-import "../styles/TelaLogin.css";
+import { useNavigate } from "react-router-dom";
+import {
+  LoginContainer,
+  LoginBox,
+  LoginHeader,
+  LogoInline,
+  Title,
+  Form,
+  Label,
+  Input,
+  TipoUsuario,
+  RadioLabel,
+  Button,
+} from "./style"; // Importa os styled-components
 
-export default function TelaLogin() {
+export default function Login() {
   const [tipoUsuario, setTipoUsuario] = useState("cliente");
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
 
-  const navigate = useNavigate(); // HOOK PARA NAVEGAR
+  const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
-
-    // Simplesmente redireciona baseado no tipo do usuário
     if (tipoUsuario === "admin") {
       navigate("/admin");
     } else {
-      navigate("/cliente");
+      navigate("/cliente"); // Certifique-se de ter uma rota para /cliente
     }
   };
 
   return (
-    <div className="login-container">
-      <div className="login-box">
-        <div className="login-header">
-          <img
-            src="/otica-maletzke.png"
-            alt="Logo da Ótica Maletzke"
-            className="logo-inline"
-          />
-          <h2>Login - Ótica Digital</h2>
-        </div>
-        <form onSubmit={handleLogin}>
-          <label htmlFor="email">Email</label>
-          <input
+    <LoginContainer>
+      <LoginBox>
+        <LoginHeader>
+          <LogoInline src="/otica-maletzke.png" alt="Logo da Ótica Maletzke" />
+          <Title>Login - Ótica Digital</Title>
+        </LoginHeader>
+        <Form onSubmit={handleLogin}>
+          <Label htmlFor="email">Email</Label>
+          <Input
             id="email"
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
-          <label htmlFor="senha">Senha</label>
-          <input
+          <Label htmlFor="senha">Senha</Label>
+          <Input
             id="senha"
             type="password"
             value={senha}
             onChange={(e) => setSenha(e.target.value)}
             required
           />
-          <div className="tipo-usuario">
-            <label>
+          <TipoUsuario>
+            <RadioLabel>
               <input
                 type="radio"
                 name="tipo"
@@ -58,8 +64,8 @@ export default function TelaLogin() {
                 onChange={() => setTipoUsuario("cliente")}
               />
               Cliente
-            </label>
-            <label>
+            </RadioLabel>
+            <RadioLabel>
               <input
                 type="radio"
                 name="tipo"
@@ -68,11 +74,11 @@ export default function TelaLogin() {
                 onChange={() => setTipoUsuario("admin")}
               />
               Funcionário
-            </label>
-          </div>
-          <button type="submit">Entrar</button>
-        </form>
-      </div>
-    </div>
+            </RadioLabel>
+          </TipoUsuario>
+          <Button type="submit">Entrar</Button>
+        </Form>
+      </LoginBox>
+    </LoginContainer>
   );
 }
